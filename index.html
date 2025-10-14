@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A0Z Chatbot</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chatbox {
+      width: 90%;
+      max-width: 500px;
+      border: 1px solid #660000;
+      border-radius: 10px;
+      padding: 20px;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px #66000055;
+    }
+
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 80%;
+      padding: 8px;
+      background: #222;
+      border: 1px solid #660000;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    button {
+      background: #660000;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #880000;
+    }
+
+    .msg {
+      margin: 5px 0;
+    }
+
+    .user {
+      color: #f55;
+    }
+
+    .bot {
+      color: #6cf;
+    }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <h2>A0Z Chatbot 🔥</h2>
+    <div id="messages"></div>
+    <input id="userInput" type="text" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const FUNCTION_URL = "https://REGION-PROJECT.cloudfunctions.net/askAI"; 
+    // 👆 استبدل هذا بالرابط الحقيقي للـ Function من Firebase بعد النشر
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+      appendMessage("user", msg);
+      input.value = "";
+
+      try {
+        const res = await fetch(FUNCTION_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: msg })
+        });
+
+        const data = await res.json();
+        const botReply =
+          data?.choices?.[0]?.message?.content ||
+          data?.message ||
+          "Sorry, I couldn’t think of a reply 😅";
+
+        appendMessage("bot", botReply);
+      } catch (err) {
+        appendMessage("bot", "⚠️ Error connecting to server.");
+      }
+    }
+
+    function appendMessage(sender, text) {
+      const div = document.createElement("div");
+      div.className = "msg " + sender;
+      div.textContent = `${sender === "user" ? "You" : "A0Z"}: ${text}`;
+      document.getElementById("messages").appendChild(div);
+    }
+  </script>
+</body>
+</html>
