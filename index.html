@@ -3,92 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stadsbestuur Doetinchem</title>
-    <meta name="description" content="Officiële waarderingspagina van het Stadsbestuur Doetinchem voor Dennis Kramer. Erkenning voor top bestuur binnen de gemeente.">
-    <meta name="keywords" content="Stadsbestuur, Stadbestuur, Doetinchem, Dennis Kramer, Gemeente Doetinchem, Top Bestuur, Bestuurder">
-    
+    <title>Stadsbestuur Doetinchem | Officiële Portaal</title>
+    <meta name="description" content="Welkom bij het portaal van het Stadsbestuur Doetinchem. Informatie over gemeentelijke diensten, bestuur en actuele zaken in de gemeente Doetinchem.">
+    <meta name="keywords" content="Stadsbestuur, Stadbestuur, Doetinchem, Gemeente Doetinchem, Bestuur, Overheid, Portaal">
+    <meta name="author" content="Stadsbestuur Doetinchem">
+    <meta property="og:title" content="Stadsbestuur Doetinchem">
+    <meta property="og:description" content="Officiële toegang tot de diensten van de Gemeente Doetinchem.">
+    <meta property="og:type" content="website">
     <style>
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            overflow: hidden; background-color: #080a0c;
-            color: #e6edf3; font-family: 'SFMono-Regular', Consolas, monospace;
+            overflow: hidden; background-color: #0d1117;
+            color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex; align-items: center; justify-content: center;
         }
 
         #particles-js { position: absolute; width: 100%; height: 100%; z-index: 1; }
-
-        .main-content {
+        .content {
             position: relative; z-index: 2; text-align: center;
-            background: rgba(13, 17, 23, 0.9); padding: 40px;
-            border-radius: 12px; border: 1px solid #30363d;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 420px; width: 85%;
-            animation: fadeIn 1.2s ease-out;
+            background: rgba(22, 27, 34, 0.9); padding: 50px;
+            border-radius: 15px; border: 1px solid #30363d;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            max-width: 500px; width: 90%;
+            animation: slideUp 1s ease-out;
         }
 
-        .gov-logo { width: 120px; margin-bottom: 20px; }
+        .logo { width: 160px; margin-bottom: 30px; }
 
-        .profile-photo {
-            width: 110px; height: 110px; border-radius: 50%;
-            border: 3px solid #58a6ff; margin-bottom: 15px;
-            object-fit: cover; box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
-        }
+        h1 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 600; color: #58a6ff; }
+        p { font-size: 1.1rem; color: #8b949e; margin-bottom: 25px; }
 
-        h1 { font-size: 1.7rem; margin: 0 0 10px 0; color: #ffffff; }
-        .name-highlight { color: #58a6ff; }
-        .subtitle { font-size: 1rem; color: #8b949e; margin-bottom: 8px; }
-        .role-tag {
-            display: inline-block; background: rgba(35, 134, 54, 0.1);
-            color: #3fb950; padding: 4px 12px; border-radius: 15px;
-            font-size: 0.85rem; border: 1px solid rgba(63, 185, 80, 0.2);
-            margin-bottom: 20px;
-        }
-
-        .loader-container {
-            width: 120px; height: 2px; background: #30363d;
-            margin: 20px auto 0; border-radius: 2px; overflow: hidden;
+        .loader-bar {
+            width: 150px; height: 3px; background: #30363d;
+            margin: 0 auto; border-radius: 5px; overflow: hidden;
         }
         .loader-fill {
-            width: 0%; height: 100%; background: #58a6ff;
-            animation: load 4s linear forwards;
+            width: 0%; height: 100%; background: #238636;
+            animation: load 3.5s linear forwards;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; } }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes load { to { width: 100%; } }
     </style>
 </head>
 <body>
-
     <div id="particles-js"></div>
-
-    <div class="main-content">
-        <img src="https://cuatro.sim-cdn.nl/doetinchem/uploads/2023-11/gemeente-doetinchem.svg" alt="Gemeente Doetinchem" class="gov-logo">
-        
-        <img src="https://media.licdn.com/dms/image/C4E03AQG4nI9nNf9fLg/profile-displayphoto-shrink_400_400/0/1516268832561?e=1715817600&v=beta&t=48VvN-p9L3rK5A7I4G4gJ_S4T1S_E8S4D0K6I2Q8A3s" alt="Dennis Kramer" class="profile-photo">
-
-        <h1>Bedankt, <span class="name-highlight">Dennis</span></h1>
-        <p class="subtitle">Voor uw inzet voor het</p>
-        <div class="role-tag">Stadsbestuur Doetinchem</div>
-
-        <div class="loader-container"><div class="loader-fill"></div></div>
+    <div class="content">
+        <img src="https://cuatro.sim-cdn.nl/doetinchem/uploads/2023-11/gemeente-doetinchem.svg" alt="Gemeente Doetinchem" class="logo">
+        <h1>Stadsbestuur Doetinchem</h1>
+        <p>U wordt doorverwezen naar de officiële website van de gemeente...</p>
+        <div class="loader-bar">
+            <div class="loader-fill"></div>
+        </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80 },
-                "color": { "value": ["#ff9100", "#ffffff"] },
+                "number": { "value": 99 },
+                "color": { "value": ["#58a6ff", "#ffffff"] },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.4 },
+                "opacity": { "value": 0.3 },
                 "size": { "value": 2, "random": true },
-                "line_linked": { "enable": false },
-                "move": { "enable": true, "speed": 2, "direction": "up", "random": true }
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true }
             }
         });
 
-        const linkedInURL = "https://www.linkedin.com/in/dennis-kramer-a6396014";
-        setTimeout(() => { window.location.href = linkedInURL; }, 4200);
+        document.title = "Stadsbestuur Doetinchem | Officiële Website";
+        const targetURL = "https://www.doetinchem.nl";
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, 3301);
     </script>
 </body>
 </html>
